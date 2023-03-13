@@ -39,6 +39,15 @@ public class Ship {
      */
     public Ship(String Name, Message[] Messages){ this.init(Name, Messages); }
 
+    // NEW CONSTRUCTORS
+
+    public Ship(String ID, String Name){
+        this.init(ID, Name, DEFAULT_MESSAGES);
+    }
+
+    public Ship(String ID, String Name, Message[] Messages){
+        this.init(ID, Name, Messages);
+    }
 
     //GETTERS
 
@@ -104,6 +113,13 @@ public class Ship {
         this.ID = ID_Generator.Generate("SH", 4, Ship_No);
         Ship_No++;
 
+        this.Name = Name;
+        this.Messages = Messages;
+    }
+
+    private void init(String ID, String Name, Message[] Messages){
+        // ID isn't auto generated, it's now provided
+        this.ID = ID;
         this.Name = Name;
         this.Messages = Messages;
     }
