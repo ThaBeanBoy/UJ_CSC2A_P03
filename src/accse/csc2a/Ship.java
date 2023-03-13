@@ -1,13 +1,12 @@
 package accse.csc2a;
 
-import accse.csc2a.Message;
-import accse.csc2a.ID_Generator;
+import accse.csc2a.p03_utils;
 
 /**
  * Ship is a class that contains Message objects & capable of printing messages, but isn't able to change the properties of the messages
  * @author TG Chipoyera 220150124
  * @version P02
- * @see Message,ID_Generator
+ * @see Message, p03_utils
  */
 public class Ship {
     //PROPERTIES
@@ -86,6 +85,10 @@ public class Ship {
      */
     public final int numberOfMessages(){ return this.Messages.length; }
 
+    public void addMessage(Message newMessage){
+        this.Messages = p03_utils.appendArray(this.Messages, newMessage);
+    }
+
     /**
      * Outputs all the Ship's Messages' detail in the console
      */
@@ -114,14 +117,14 @@ public class Ship {
                     Message.getID(),
                     Message.getLanguage(),
                     Message.getMessage(),
-                    Message.getPlanetString(Message.getSourcePlanet()),
-                    Message.getPlanetString(Message.getDestinationPlanet()));
+                    Message.PlanetToString(Message.getSourcePlanet()),
+                    Message.PlanetToString(Message.getDestinationPlanet()));
         }
     }
 
     //UTILITY FUNCTIONS
     private void init(String Name, Message[] Messages){
-        this.ID = ID_Generator.Generate("SH", 4, Ship_No);
+        this.ID = p03_utils.Generate("SH", 4, Ship_No);
         Ship_No++;
 
         this.Name = Name;

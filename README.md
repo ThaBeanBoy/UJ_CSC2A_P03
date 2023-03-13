@@ -47,3 +47,106 @@ public class Ship {
 ```
 
 ### Message's new Constructors & Method
+
+All the reasoning stated in the [section above](#Ship's-new-Constructors-&-Method) was also applied to the Message class.
+But this might require an extensive explanation.
+
+#### StringToPlanet method
+
+This method is meant to recognise a string & convert it into a ```Planet``` enumeration. In the switch case, the input
+string is converted into lower case ```Planet.toLowerCase()``` to make sure that it can return a Planet without having to
+worry about any upper case characters.
+
+This method is mainly used in the constructors, 2 of the constructor methods accept planets as a string, which need to
+be converted into the appropriate data type.
+
+It was also made public to make it accessible in other classes & files in the event it is needed elsewhere. 
+
+#### Exceptions
+
+The ```StringToPlanet``` throws an ```InvalidPlanetString``` exception. This fell under the default case in the switch
+statement
+
+```java
+public class Message{
+    public Message(String ID, String Language, String Message, Planet SourcePlanet, Planet DestinationPlanet){
+        this.init(ID, Language, Message, SourcePlanet, DestinationPlanet);
+    }
+
+    public Message(String Language, String Message, String SourcePlanet, String DestinationPlanet) throws InvalidPlanetString {
+        try{
+            this.init(Language, Message, SourcePlanet, DestinationPlanet);
+        }catch(InvalidPlanetString exception){
+            throw new InvalidPlanetString();
+        }
+    }
+
+    public Message(String ID, String Language, String Message, String SourcePlanet, String DestinationPlanet) throws InvalidPlanetString{
+        try{
+            this.init(ID, Language, Message, SourcePlanet, DestinationPlanet);
+        }catch(InvalidPlanetString exception){
+            throw new InvalidPlanetString();
+        }
+    }
+
+    private void init(String Language, String Message, String SourcePlanet, String DestinationPlanet) throws InvalidPlanetString{
+        try{
+            this.ID = ID_Generator.Generate("MSG", 6, Message_No);
+            Message_No++;
+
+            this.Language = Language;
+            this.Message = Message;
+            this.SourcePlanet = StringToPlanet(SourcePlanet);
+            this.DestinationPlanet = StringToPlanet(DestinationPlanet);
+        }catch(InvalidPlanetString exception){
+            throw new InvalidPlanetString();
+        }
+    }
+
+    private void init(String ID, String Language, String Message, Planet SourcePlanet, Planet DestinationPlanet){
+        this.ID = ID;
+
+        this.Language = Language;
+        this.Message = Message;
+        this.SourcePlanet = SourcePlanet;
+        this.DestinationPlanet = DestinationPlanet;
+    }
+
+    private void init(String ID, String Language, String Message, String SourcePlanet, String DestinationPlanet) throws InvalidPlanetString{
+        try{
+            this.ID = ID;
+
+            this.Language = Language;
+            this.Message = Message;
+            this.SourcePlanet = StringToPlanet(SourcePlanet);
+            this.DestinationPlanet = StringToPlanet(DestinationPlanet);
+        }catch(InvalidPlanetString exception){
+            throw new InvalidPlanetString();
+        }
+    }
+
+    public static Planet StringToPlanet(String Planet) throws InvalidPlanetString{
+        return switch(Planet.toLowerCase()){
+            case "mercury" -> Mercury;
+            case "venus" -> Venus;
+            case "earth" -> Earth;
+            case "mars" -> Mars;
+            case "jupiter" -> Jupiter;
+            case "saturn" -> Saturn;
+            case "uranus" -> Uranus;
+            case "neptune" -> Neptune;
+            case "pluto" -> Pluto;
+            default -> throw new InvalidPlanetString();
+        };
+    }
+
+    public static class InvalidPlanetString extends Exception{}
+}
+```
+
+### Appending Array function , Generics & p03_utils
+
+I asked the lecturer if we could use ```ArrayList``` for this practical, unfortunately he said they were not allowed, & we
+manually had to increase the size of the array. During the practical, I noticed that I had to deal with 2 arrays, a ```Ship[]```
+& ```Message[]``` arrays. I realised that not only would I create a function for appending to an array, but I'd have to create
+2 seperate functions that used the same logic. This is where generics are involved.
