@@ -41,10 +41,21 @@ public class Ship {
 
     // NEW CONSTRUCTORS
 
+    /**
+     * Generates Ship instance without a auto-generated ID,
+     * @param ID - the ID of the Ship
+     * @param Name - the name of the Ship
+     */
     public Ship(String ID, String Name){
         this.init(ID, Name, DEFAULT_MESSAGES);
     }
 
+    /**
+     * Generates Ship instance without a auto-generated ID,
+     * @param ID - the ID of the Ship
+     * @param Name - a string, this will be the name of the ship
+     * @param Messages - array of Message objects, the messages the ship object will contain
+     */
     public Ship(String ID, String Name, Message[] Messages){
         this.init(ID, Name, Messages);
     }
