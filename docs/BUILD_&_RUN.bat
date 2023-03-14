@@ -7,7 +7,7 @@ REM Turn echo off and clear the screen.
 cls
 
 REM Good batch file coding practice.
-setlocal enabledelayedexpansion
+set local enabledelayedexpansion
 
 REM Paths for JDK
 REM Remember to change JAVA_HOME to the correct path on your system
