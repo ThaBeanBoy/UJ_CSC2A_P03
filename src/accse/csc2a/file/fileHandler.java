@@ -7,7 +7,6 @@ import accse.csc2a.p03_utils;
 import java.io.File;
 import java.io.FileNotFoundException;
 
-import java.util.Arrays;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -29,7 +28,8 @@ public class fileHandler {
             Ship[] Ships = new Ship[0];
             Message[] Messages = new Message[0];
 
-            while(lines.hasNext() ){
+            System.out.println("has next ? " + lines.hasNext());
+            while(lines.hasNext()){
                 String line = lines.nextLine();
                 String[] words = line.split(" ");
                 String[] ErrorLogs = new String[0];
@@ -38,9 +38,6 @@ public class fileHandler {
                 Matcher MessageMatcher = MessageID_Pattern.matcher(words[0]);
 
                 if(ShipMatcher.matches()) {
-                    // Preparing Ship details
-//                    System.out.printf("%s is a ship\n", words[0]);
-
                     String ShipID = words[0];
                     StringBuilder ShipName = new StringBuilder(words[1]);
                     for(int i=2; i<words.length; i++)
@@ -70,9 +67,12 @@ public class fileHandler {
                                 DestinationPlanet
                                 );
 
-                        Ships[Ships.length - 1].addMessage(MessageInLine);
-
-                        continue;
+                        if(Ships.length > 0)
+                            Ships[Ships.length - 1].addMessage(MessageInLine);
+                        else
+                            ErrorLogs = p03_utils.appendArray(ErrorLogs, """
+                                    There is no ship for this message, 
+                                               there might've been an error with the first ship's details""");
 
                     }catch (Message.InvalidPlanetString exception){
                         ErrorLogs = p03_utils.appendArray(ErrorLogs, "Invalid Planet String");
@@ -82,9 +82,18 @@ public class fileHandler {
                     ErrorLogs = p03_utils.appendArray(ErrorLogs, "Invalid Line, Neither a Ship nor a Message");
                 }
 
-                //Printing Errors in the line
-                for(String ErrMsg : ErrorLogs)
-                    System.out.println(String.format("ERR LOGS : %n", ErrMsg));
+                //displaying errors if there are any errors to be displayed
+                if(ErrorLogs.length > 0){
+                    //Printing Errors in the line
+                    System.out.println(String.format("""
+                            ==================
+                            |ERROR LOGS FOR -> %s
+                            ------------------""", line));
+                    for(String ErrMsg : ErrorLogs)
+                        System.out.println(String.format("|ERR LOG : %s", ErrMsg));
+
+                    System.out.println("==================\n\n");
+                }
             }
 
             return Ships;
