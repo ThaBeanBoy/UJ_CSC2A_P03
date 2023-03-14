@@ -12,7 +12,7 @@ public class Main {
                 1. normal.txt
                 2 large.txt
                 3 corrupt.txt
-                
+
                 Option: """);
         int option = input.nextInt();
 
@@ -26,11 +26,13 @@ public class Main {
 
             }
             case 2 -> {
+                // Why does it load the normal file properly, but it doesn't read the other ones properly
                 Ships = fileHandler.readFile("data/large.txt");
                 for(Ship Ship : Ships)
                     Ship.printMessages();
             }
             case 3 -> {
+                // Why does it load the normal file properly, but it doesn't read the other ones properly
                 Ships = fileHandler.readFile("data/corrupt.txt");
                 for(Ship Ship : Ships)
                     Ship.printMessages();

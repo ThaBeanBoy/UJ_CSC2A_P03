@@ -61,6 +61,14 @@ public class Message{
 
     // NEW CONSTRUCTORS
 
+    /**
+     *
+     * @param ID
+     * @param Language
+     * @param Message
+     * @param SourcePlanet
+     * @param DestinationPlanet
+     */
     public Message(String ID, String Language, String Message, Planet SourcePlanet, Planet DestinationPlanet){
         this.init(ID, Language, Message, SourcePlanet, DestinationPlanet);
     }

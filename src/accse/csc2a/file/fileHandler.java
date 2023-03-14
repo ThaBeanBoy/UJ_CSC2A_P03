@@ -15,20 +15,30 @@ import java.util.regex.Pattern;
  * Ship is a class that contains Message objects & capable of printing messages, but isn't able to change the properties of the messages
  * @author TG Chipoyera 220150124
  * @version P02
- * @see Message,Ship
+ * @see Message,Ship,p03_utils
  */
 public class fileHandler {
+    // Regex for Ship ID
     public static Pattern ShipID_Pattern = Pattern.compile("SH\\d{4}");
+
+    // Regex for Message ID
     public static Pattern MessageID_Pattern = Pattern.compile("MSG\\d{6}");
 
+    /**
+     * Reads a file & generates an array of ships, each ship contains messages that are also stored in the file
+     * Errors are checked for each line in the file, each error are displayed in the console
+     * @param filePath - The file path that will be read from
+     * @return Ship[]
+     */
     public static Ship[] readFile(String filePath){
         File handle = new File(filePath);
 
         try(Scanner lines = new Scanner(handle)){
+            lines.reset();
             Ship[] Ships = new Ship[0];
             Message[] Messages = new Message[0];
 
-            System.out.println("has next ? " + lines.hasNext());
+            System.out.println("length of file ? " + handle.length());
             while(lines.hasNext()){
                 String line = lines.nextLine();
                 String[] words = line.split(" ");
