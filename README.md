@@ -9,10 +9,10 @@
     * [Message's new Constructors & Method](#message-s-new-constructors---method)
         + [StringToPlanet method](#stringtoplanet-method)
         + [Exceptions](#exceptions)
-    * [Appending Array function , Generics & p03_utils](#appending-array-function---generics---p03-utils)
-    * [Reading files](#reading-files)
-        + [ARM (Automatic Resource Management)](#arm--automatic-resource-management-)
-        + [Reading file contents](#reading-file-contents)
+- [Appending Array function , Generics & p03_utils](#appending-array-function---generics---p03-utils)
+- [Reading files](#reading-files)
+    * [ARM (Automatic Resource Management)](#arm--automatic-resource-management-)
+    * [Reading file contents](#reading-file-contents)
 
 ## Additional Information
 
