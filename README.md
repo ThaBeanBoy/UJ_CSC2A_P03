@@ -157,7 +157,7 @@ public class Message{
 }
 ```
 
-### Appending Array function , Generics & p03_utils
+## Appending Array function , Generics & p03_utils
 
 I asked the lecturer if we could use ```ArrayList``` for this practical, unfortunately he said they were not allowed, & we
 manually had to increase the size of the array. During the practical, I noticed that I had to deal with 2 arrays, a ```Ship[]```
@@ -182,10 +182,10 @@ public class p03_utils {
 
 process of appending the array
 
-### Reading files
+## Reading files
 This is the main focus of the practical, reading from a file. 
 
-#### ARM (Automatic Resource Management)
+### ARM (Automatic Resource Management)
 The lecturer instructed us to use Automatic Resource Management, & from using it, I have to say that I completely love it.
 It automatically closes resources that would otherwise need you to manually close it. I know it may seem like a small thing,
 but in a world where humans are programmers, this is one less place where we can make errors.
@@ -204,7 +204,7 @@ public class fileHandler{
 }
 ```
 
-#### Reading file contents
+### Reading file contents
 
 Using a Scanner object, it makes it easier to read & interact with every line in a file using a while loop.
 
