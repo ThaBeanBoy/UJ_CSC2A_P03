@@ -1,6 +1,18 @@
 # UJ CSC2A Practical 3
 
-## Index
+## Table of content
+
+- [Additional Information](#additional-information)
+- [Class Structure](#class-structure)
+- [Changes To the Original Classes](#changes-to-the-original-classes)
+    * [Ship's new Constructors & Method](#ship-s-new-constructors---method)
+    * [Message's new Constructors & Method](#message-s-new-constructors---method)
+        + [StringToPlanet method](#stringtoplanet-method)
+        + [Exceptions](#exceptions)
+    * [Appending Array function , Generics & p03_utils](#appending-array-function---generics---p03-utils)
+    * [Reading files](#reading-files)
+        + [ARM (Automatic Resource Management)](#arm--automatic-resource-management-)
+        + [Reading file contents](#reading-file-contents)
 
 ## Additional Information
 
