@@ -2,6 +2,7 @@
 
 ## Table of content
 
+- [Final Marks](#marks)
 - [Additional Information](#additional-information)
 - [Class Structure](#class-structure)
 - [Changes To the Original Classes](#changes-to-the-original-classes)
@@ -13,6 +14,9 @@
 - [Reading files](#reading-files)
     * [ARM (Automatic Resource Management)](#arm--automatic-resource-management-)
     * [Reading file contents](#reading-file-contents)
+
+## Marks
+![Final marks](./docs/Marks.png)
 
 ## Additional Information
 
